@@ -50,6 +50,15 @@ header nav a {
 }
 
 /* Gallery */
+.showreel {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 .gallery-wrapper {
   overflow: hidden;
   width: 100%;
