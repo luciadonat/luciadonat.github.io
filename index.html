@@ -4,6 +4,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Lucía Donat | Portfolio</title>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -25,81 +28,107 @@
 
   <main>
     <section class="showreel">
-    <div class="gallery first-row">
-      <a href="./savechildren/savethechildren.html" class="thumb-link">
-        <div class="thumb" data-title="Teddy bears don’t work" data-year="2025">
-          <img src="./covers/save_children.png" alt="Save the children" />
+  <!-- new first row -->
+      <section id="firstGallery" class="splide" aria-label="Splide Basic HTML Example">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <a href="./savechildren/savethechildren.html" class="thumb-link">
+                <div class="thumb" data-title="Teddy bears don’t work" data-year="2025">
+                  <img src="./covers/save_children.png" alt="Save the children" />
+                </div>
+              </a>
+            </li>
+            <li class="splide__slide">
+              <a href="./leone/leone.html" class="thumb-link">
+                <div class="thumb" data-title="Leone Campaign" data-year="2025">
+                  <img src="./covers/leone_campaign.png" alt="Leone Campaign"/>
+                </div>
+              </a>
+            </li>
+            <li class="splide__slide">
+              <a href="./jeans/jeans.html" class="thumb-link">
+                <div class="thumb" data-title="Jeans Alphabet" data-year="2023">
+                  <img src="./covers/jeans_alphabet.png" alt="Denim Alphabet" />
+                </div>
+              </a>
+            </li>
+            <li class="splide__slide">
+              <a href="./mom/mom.html" class="thumb-link">
+                <div class="thumb" data-title="Collage" data-year="2022">
+                  <img src="./covers/mom_collage.png" alt="Collage" />
+                </div>
+              </a>
+            </li>
+            <li class="splide__slide">
+              <a href="./brochure/brochure.html" class="thumb-link">
+                <div class="thumb" data-title="Valencia Brochure" data-year="2024">
+                  <img src="./covers/valencia_brochure.png" alt="Valencia Brochure" />
+                </div>
+              </a>
+            </li>
+            <li class="splide__slide">
+              <a href="./sammi/sammi.html" class="thumb-link">
+                <div class="thumb" data-title="SAMMI" data-year="2024">
+                  <img src="./covers/sammi.png" alt="SAMMI" />
+                </div>
+              </a>
+            </li>
+          </ul>
         </div>
-      </a>
-      <!-- Leone Campaign con enlace a jeans.html -->
-      <a href="./leone/leone.html" class="thumb-link">
-        <div class="thumb" data-title="Leone Campaign" data-year="2025">
-          <img src="./covers/leone_campaign.png" alt="Leone Campaign"/>
-        </div>
-      </a>
+      </section>
 
-      <!-- Proyecto B con enlace a jeans.html -->
-      <a href="./jeans/jeans.html" class="thumb-link">
-        <div class="thumb" data-title="Jeans Alphabet" data-year="2023">
-          <img src="./covers/jeans_alphabet.png" alt="Denim Alphabet" />
+      <section id="secondGallery" class="splide" aria-label="Splide Basic HTML Example">
+        <div class="splide__track">
+          <ul class="splide__list">
+            <li class="splide__slide">
+              <a href="./brochure/brochure.html" class="thumb-link">
+                <div class="thumb" data-title="Valencia Brochure" data-year="2024">
+                  <img src="./covers/valencia_brochure.png" alt="Valencia Brochure" />
+                </div>
+              </a>
+            </li>
+            <li class="splide__slide">
+              <a href="./sammi/sammi.html" class="thumb-link">
+                <div class="thumb" data-title="SAMMI" data-year="2024">
+                  <img src="./covers/sammi.png" alt="SAMMI" />
+                </div>
+              </a>
+            </li>
+            <li class="splide__slide">
+              <a href="./savechildren/savethechildren.html" class="thumb-link">
+                <div class="thumb" data-title="Teddy bears don’t work" data-year="2025">
+                  <img src="./covers/save_children.png" alt="Save the children" />
+                </div>
+              </a>
+            </li>
+            <li class="splide__slide">
+              <!-- Leone Campaign con enlace a jeans.html -->
+              <a href="./leone/leone.html" class="thumb-link">
+                <div class="thumb" data-title="Leone Campaign" data-year="2025">
+                    <img src="./covers/leone_campaign.png" alt="Leone Campaign"/>
+                </div>
+              </a>
+            </li>
+            <li class="splide__slide">
+              <!-- Proyecto B con enlace a jeans.html -->
+              <a href="./jeans/jeans.html" class="thumb-link">
+                <div class="thumb" data-title="Jeans Alphabet" data-year="2023">
+                  <img src="./covers/jeans_alphabet.png" alt="Denim Alphabet" />
+                </div>
+              </a> 
+            </li>
+            <li class="splide__slide">
+              <a href="./mom/mom.html" class="thumb-link">
+                <div class="thumb" data-title="Collage" data-year="2022">
+                  <img src="./covers/mom_collage.png" alt="Collage" />
+                </div>
+              </a>
+            </li>
+          </ul>
         </div>
-      </a>
+      </section>
 
-      <a href="./mom/mom.html" class="thumb-link">
-        <div class="thumb" data-title="Collage" data-year="2022">
-          <img src="./covers/mom_collage.png" alt="Collage" />
-        </div>
-      </a>
-
-      <a href="./brochure/brochure.html" class="thumb-link">
-        <div class="thumb" data-title="Valencia Brochure" data-year="2024">
-          <img src="./covers/valencia_brochure.png" alt="Valencia Brochure" />
-        </div>
-      </a>
-
-      <a href="./sammi/sammi.html" class="thumb-link">
-        <div class="thumb" data-title="SAMMI" data-year="2024">
-          <img src="./covers/sammi.png" alt="SAMMI" />
-        </div>
-      </a>
-    </div>
-
-    <div class="gallery second-row">
-      <a href="./brochure/brochure.html" class="thumb-link">
-        <div class="thumb" data-title="Valencia Brochure" data-year="2024">
-          <img src="./covers/valencia_brochure.png" alt="Valencia Brochure" />
-        </div>
-      </a>
-      <a href="./sammi/sammi.html" class="thumb-link">
-        <div class="thumb" data-title="SAMMI" data-year="2024">
-          <img src="./covers/sammi.png" alt="SAMMI" />
-        </div>
-      </a>
-      <a href="./savechildren/savethechildren.html" class="thumb-link">
-        <div class="thumb" data-title="Teddy bears don’t work" data-year="2025">
-          <img src="./covers/save_children.png" alt="Save the children" />
-        </div>
-      </a>
-      <!-- Leone Campaign con enlace a jeans.html -->
-      <a href="./leone/leone.html" class="thumb-link">
-        <div class="thumb" data-title="Leone Campaign" data-year="2025">
-            <img src="./covers/leone_campaign.png" alt="Leone Campaign"/>
-        </div>
-      </a>
-
-          <!-- Proyecto B con enlace a jeans.html -->
-      <a href="./jeans/jeans.html" class="thumb-link">
-        <div class="thumb" data-title="Jeans Alphabet" data-year="2023">
-          <img src="./covers/jeans_alphabet.png" alt="Denim Alphabet" />
-        </div>
-      </a> 
-      
-      <a href="./mom/mom.html" class="thumb-link">
-            <div class="thumb" data-title="Collage" data-year="2022">
-              <img src="./covers/mom_collage.png" alt="Collage" />
-            </div>
-          </a>
-    </div>
     </section>
 
 <section class="portfolio-gallery">
@@ -137,6 +166,7 @@
   </main>
 
   <div class="cursor"></div>
-  <script src="script.js"></script>
+  <!-- <script src="script.js"></script> -->
+   <script src="gallery.js"></script>
 </body>
 </html>

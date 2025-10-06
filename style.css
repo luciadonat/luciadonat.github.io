@@ -22,6 +22,15 @@ body {
 }
 
 /* Header */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 55px;
+  background: white;
+  z-index: 999999999;
+}
 header nav {
   display: flex;
   justify-content: space-between;
@@ -58,6 +67,7 @@ header nav a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 40px;
 }
 .gallery-wrapper {
   overflow: hidden;
@@ -81,15 +91,22 @@ header nav a {
   animation: scrollRight 35s linear infinite;
 }
 
-.thumb {
+/* .thumb {
   position: relative;
   flex-shrink: 0;
-  overflow: hidden; /* importante para ocultar la imagen cuando desaparece */
+  overflow: hidden;
   margin-right: 3rem;
-  width: 25vw; /* asegúrate de que coincida con el tamaño de la imagen */
-}
+  width: 25vw;  
+}*/
 
-.thumb img {
+/* .thumb img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: block;
+} */
+.splide__slide img {
   width: 100%;
   height: auto;
   object-fit: cover;
@@ -116,13 +133,36 @@ header nav a {
   transition: opacity 0.3s ease;
 }
 
-.thumb.hovered img {
-  opacity: 100%; /* la imagen desaparece */
+.splide__slide .thumb:hover::after {
+  opacity: 1;
+}
+
+/* .thumb::after {
+  content: attr(data-title) "\A " attr(data-year);
+  white-space: pre;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(6, 6, 6, 0.7);
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+} */
+
+/* .thumb.hovered img {
+  opacity: 100%;
 }
 
 .thumb.hovered::after {
-  opacity: 1; /* aparece el fondo negro con el texto */
-}
+  opacity: 1;
+} */
 
 /* Cursor */
 .cursor {
