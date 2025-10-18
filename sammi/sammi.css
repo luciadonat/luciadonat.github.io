@@ -4,6 +4,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 @font-face {
   font-family: 'Gotham';
   src: url('fonts/Gotham.woff2') format('woff2'),
@@ -20,7 +21,6 @@ body {
   overflow-x: hidden; /* evita scroll horizontal indeseado */
   overflow-y: auto;   /* permite scroll vertical */
 }
-
 
 /* Header */
 .header {
@@ -75,7 +75,8 @@ body {
 .info {
   font-weight: bold;
 }
-/*Info*/
+
+/* Info Panel */
 .info-panel {
   position: fixed;
   top: 0;
@@ -112,36 +113,6 @@ body {
   text-decoration: none;
   color: black;
 }
-
-
-/* Hero */
-.hero img {
-  width: 100%;
-  display: block;
-}
-
-/* Related */
-.related {
-  padding: 2rem;
-}
-
-.related h2 {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-}
-
-.related-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-}
-
-.related-grid img {
-  width: 100%;
-  border-radius: 4px;
-  object-fit: cover;
-}
-
 /* Footer */
 .footer {
   display: flex;
@@ -166,35 +137,37 @@ body {
   color: #000;
 }
 
+/* Video */
 .video-container {
-  width: 100%; /* ocupa todo el ancho */
+  width: 100%;
   text-align: center;
 }
 
 .video {
-  width: 100%;   /* el video ocupa el 100% del contenedor */
-  height: auto;  /* mantiene la proporción */
-  display: block; /* evita pequeños espacios fantasmas */
+  width: 100%;
+  height: auto;
+  display: block;
   margin: 0 auto;
-  filter: saturate(1.5)
+  filter: saturate(1.5);
 }
 
+/* Imagen general */
 .image {
   display: block;
-  width: 100%;          /* ocupa todo el ancho de su contenedor */   /* centrada con espacio arriba y abajo */
-  height: auto;         /* mantiene la proporción */ /* bordes suaves */
-  object-fit: cover;    /* recorte elegante si se fuerza altura */
-  filter: saturate(1.1) contrast(1.05); /* un poquito más de vida */
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  filter: saturate(1.1) contrast(1.05);
   transition: transform 0.3s ease, filter 0.3s ease;
 }
 
-/*hoodie section*/
+/* Hoodie section */
 .container {
-  height: 100vh; /* ocupa todo el alto de la pantalla */
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;     /* centra el contenido */
+  margin: 0 auto;
   padding: 3vh 0;
 }
 
@@ -203,26 +176,47 @@ body {
   gap: 20px;
   height: 100%;
   width: 100%;
-  padding:3vh;
+  padding: 3vh;
 }
 
-/* imágenes normales */
-.item {
-  flex: 1;                /* cada imagen ocupa el mismo espacio */
-  height: 100%;           
-  object-fit: cover;      
-  transition: 0.3s ease;
+.hover {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #000000;
+  padding: 4rem 0;
+  height: 100vh;
+}
+.hover-right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: #edecec;
+  padding: 0rem 4rem;
+  height: 100vh;
 }
 
-/* contenedor hover */
+/* --- Contenedor de la imagen --- */
 .hover-image {
   position: relative;
-  flex: 1;
-  height: 100%;
-  overflow: hidden;
+  width: 100%;
+  max-width: 500px;
+  height: 600px;
+  overflow: show;
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-left: 10%;
 }
 
-/* imagen de delante */
+/* --- Imagen base (fondo) --- */
+.hover-image .back {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* --- Imagen delantera (que se moverá) --- */
 .hover-image .front {
   position: absolute;
   top: 0;
@@ -230,28 +224,29 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top left; /* 👈 se recorta abajo y derecha */
-  transition: transform 0.4s ease, opacity 0.4s ease;
+  display: block;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+  z-index: 2;
 }
-
-/* imagen de atrás */
-.hover-image .back {
+.hover-image .front2 {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: top left; /* usa el mismo anclaje */
-  opacity: 0;
-  transition: opacity 0.4s ease;
+  display: block;
+  transform: translateX(0);
+  transition: transform 0.6s ease-in-out;
+  z-index: 2;
 }
 
-/* efecto hover */
-.hover-image:hover .back {
-  opacity: 1;
-}
 
+/* --- Efecto al hacer hover --- */
 .hover-image:hover .front {
-  opacity: 0;
+  transform: translateX(100%); /* 👈 se desplaza parcialmente hacia la derecha */
+}
+.hover-image:hover .front2{
+  transform: translateX(-100%); /* 👈 se desplaza parcialmente hacia la derecha */
 }
