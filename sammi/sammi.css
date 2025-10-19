@@ -152,101 +152,67 @@ body {
 }
 
 /* Imagen general */
-.image {
-  display: block;
+.image-pair {
+  display: flex;               /* imágenes en fila */
+  justify-content: center;     /* centradas horizontalmente */
+  align-items: stretch;        /* se ajustan al alto del contenedor */
+  gap: 2rem;                   /* espacio entre imágenes */
   width: 100%;
-  height: auto;
-  object-fit: cover;
-  filter: saturate(1.1) contrast(1.05);
-  transition: transform 0.3s ease, filter 0.3s ease;
+  height: 100vh;                /* altura de cada sección */
+  padding: 2rem 2rem;
 }
 
-/* Hoodie section */
-.container {
-  height: 100vh;
+.image-box {
+  flex: 1;                     /* ocupan el mismo ancho */
+  overflow: hidden;
+}
+
+.image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* cubre el contenedor sin deformar */
+  display: block;
+}
+.image-pair2 {
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  padding: 3vh 0;
-}
-
-.gallery {
-  display: flex;
-  gap: 20px;
-  height: 100%;
+  align-items: stretch;
+  gap: 2rem;
   width: 100%;
-  padding: 3vh;
+  height: 100vh;
+  padding: 2rem;
 }
 
-.hover {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #000000;
-  padding: 4rem 0;
-  height: 100vh;
-}
-.hover-right{
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  background-color: #edecec;
-  padding: 0rem 4rem;
-  height: 100vh;
-}
-
-/* --- Contenedor de la imagen --- */
-.hover-image {
+.image-box2 {
+  flex: 1;
   position: relative;
-  width: 100%;
-  max-width: 500px;
-  height: 600px;
-  overflow: show;
-  border-radius: 10px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin-left: 10%;
+  overflow: hidden;
 }
 
-/* --- Imagen base (fondo) --- */
-.hover-image .back {
+.image-box2 img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
+  object-position: top;
   display: block;
-}
-
-/* --- Imagen delantera (que se moverá) --- */
-.hover-image .front {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
-  z-index: 2;
+  transition: opacity 0.5s ease;
 }
-.hover-image .front2 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transform: translateX(0);
-  transition: transform 0.6s ease-in-out;
+
+/* Imagen de atrás siempre está debajo */
+.back2, .back3 {
+  z-index: 1;
+}
+
+/* Imagen de delante */
+.front2, .front3 {
   z-index: 2;
 }
 
-
-/* --- Efecto al hacer hover --- */
-.hover-image:hover .front {
-  transform: translateX(100%); /* 👈 se desplaza parcialmente hacia la derecha */
-}
-.hover-image:hover .front2{
-  transform: translateX(-100%); /* 👈 se desplaza parcialmente hacia la derecha */
+/* Hover: la imagen de delante desaparece */
+.image-box2:hover .front2,
+.image-box2:hover .front3 {
+  opacity: 0;
 }
