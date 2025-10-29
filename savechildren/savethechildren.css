@@ -4,11 +4,19 @@
   padding: 0;
   box-sizing: border-box;
 }
+/* Gotham Medium */
 @font-face {
   font-family: 'Gotham';
-  src: url('fonts/Gotham.woff2') format('woff2'),
-       url('fonts/Gotham.woff') format('woff');
-  font-weight: normal;
+  src: url('fonts/gotham_medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Gotham Black */
+@font-face {
+  font-family: 'Gotham';
+  src: url('fonts/gotham_black.otf') format('opentype');
+  font-weight: 900;
   font-style: normal;
 }
 
