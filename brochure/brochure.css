@@ -63,7 +63,7 @@
 
 @font-face {
   font-family: 'Gotham';
-  src: url('../fonts/Gotham/Gotham-MediumItalic.woff2') format('woff2'),
+  src: url('../fonts/Gotham/Gotham-Medium.woff') format('woff2'),
        url('../fonts/Gotham/Gotham-MediumItalic.woff') format('woff');
   font-weight: 500;
   font-style: italic;
