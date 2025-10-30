@@ -71,7 +71,7 @@
 
 body {
   font-family: "Gotham", serif;
-  font-weight: 400;
+  font-weight:300;
   font-style: normal;
   color: black;
   overflow-x: hidden;
@@ -288,7 +288,7 @@ header nav a {
 .project-caption {
   margin-top: 0.8rem;
   font-size: clamp(0.85rem, 1.5vw, 1rem);
-  font-weight: 400;
+  font-weight:400;
   color: #000;
   line-height: 1.4;
 }
