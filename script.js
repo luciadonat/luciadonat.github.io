@@ -39,4 +39,38 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   });
+
+  // -------------------------
+  // 4️⃣ Slider del menú
+  const nav = document.querySelector("header nav ul");
+  const links = document.querySelectorAll("header nav a");
+
+  if(nav && links.length > 0) {
+    // Crear slider
+    const slider = document.createElement("div");
+    slider.style.position = "absolute";
+    slider.style.bottom = "0";
+    slider.style.height = "2px";
+    slider.style.backgroundColor = "#e67e22";
+    slider.style.transition = "all 0.3s ease";
+    slider.style.zIndex = "5";
+    nav.appendChild(slider);
+
+    // Función para mover slider
+    function moveSlider(link) {
+      slider.style.width = `${link.offsetWidth}px`;
+      slider.style.left = `${link.offsetLeft}px`;
+    }
+
+    // Posición inicial en el enlace actual
+    const current = document.querySelector("header nav a.current");
+    if(current) moveSlider(current);
+
+    // Mover slider al pasar el mouse
+    links.forEach(link => {
+      link.addEventListener("mouseenter", () => moveSlider(link));
+      link.addEventListener("mouseleave", () => moveSlider(current));
+    });
+  }
+
 });
