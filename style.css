@@ -249,7 +249,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 2rem;
-  background-color: rgb(237, 236, 236);
+  background-color: rgb(242, 242, 242);
   animation-play-state: running;
   will-change: transform;
 }
@@ -274,16 +274,19 @@ body {
 }
 
 .project-item:hover img {
-  transform: scale(1.05); 
+  transform: scale(1.01);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
 }
 
 /* Texto debajo */
 .project-caption {
   margin-top: 0.8rem;
   font-size: clamp(0.85rem, 1.5vw, 1rem);
-  font-weight:400;
+  font-weight:300;
   color: #000;
   line-height: 1.4;
+  text-align: center;
 }
 
 /* Responsivo */
