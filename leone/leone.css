@@ -101,11 +101,13 @@ body {
 
 .brand {
   font-family: 'Gotham', sans-serif;
-  font-weight: bold;
+  font-weight: lighter;
   font-style: normal;
   font-size: 1.2rem;
   color: black;
   text-decoration: none;
+  letter-spacing: 5px; /* espacio entre letras */
+  word-spacing:2px;
 }
 
 .nav {
@@ -131,6 +133,11 @@ body {
   text-decoration: none;
   color: #111;
   font-size: 0.95rem;
+}
+
+.nav-links a:hover,
+.contact:hover {
+  font-weight: 400; /* se vuelve más grueso */
 }
 
 .contact {

@@ -99,23 +99,19 @@ body {
 
 .brand {
   font-family: 'Gotham', sans-serif;
-  font-weight: bold;
+  font-weight: lighter;
   font-style: normal;
   font-size: 1.2rem;
   color: black;
   text-decoration: none;
+  letter-spacing: 5px; /* espacio entre letras */
+  word-spacing:2px;
 }
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.logo {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #c8102e; /* rojo Ogilvy */
 }
 
 .nav-links {
@@ -131,18 +127,13 @@ body {
   font-size: 0.95rem;
 }
 
-.contact {
-  margin-left: 2rem;
+.nav-links a:hover,
+.contact:hover {
+  font-weight: 400; /* se vuelve más grueso */
 }
 
-
-.brand {
-  font-family: 'Gotham', sans-serif;
-  font-weight: bold;
-  font-style: normal;
-  font-size: 1.2rem;
-  color: black;
-  text-decoration: none;
+.contact {
+  margin-left: 2rem;
 }
 
 /* Breadcrumb */
