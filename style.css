@@ -114,6 +114,7 @@ body {
 }
 
 .nav-links {
+  font-family: 'Gotham', sans-serif;
   list-style: none;
   display: flex;
   gap: 1.5rem;
