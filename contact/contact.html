@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Me | Lucía Donat</title>
+  
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-auto-scroll@0.5.3/dist/js/splide-extension-auto-scroll.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="./contact.css">
+</head>
+<body>
+  <header class="header">
+    <nav class="nav">
+      <a href="../aboutme/aboutme.html" class="brand">LUCÍA DONAT</a>
+      <ul class="nav-links">
+        <li><a href="../index.html">Work</a></li>
+      </ul>
+      <a href="../contact/contact.html" class="contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="contact-page">
+      <div class="contact-container">
+        <h1>CONTACT</h1>
+        <p>Reach out for new business, media inquiries and other requests</p>
+
+        <form id="contact-form" class="contact-form" action="https://formspree.io/f/mkooggev" method="POST">
+          <input type="text" id="name" name="name" placeholder="Name" required />
+          <input type="email" id="email" name="email" placeholder="Email" required />
+          <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
+          <button type="submit">Send</button>
+          <p id="form-status"></p>
+        </form>
+      </div> <!-- cierra contact-container -->
+    </section> <!-- cierra contact-page -->
+  </main>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const status = document.getElementById('form-status');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault(); // Evita recargar la página
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: { 'Accept': 'application/json' }
+        });
+
+        if (response.ok) {
+          status.textContent = "Thanks! Your message has been sent.";
+          form.reset();
+        } else {
+          const data = await response.json();
+          status.textContent = data?.errors?.[0]?.message || "Oops! There was a problem.";
+        }
+      } catch (error) {
+        status.textContent = "Oops! There was a problem.";
+      }
+    });
+  </script>
+</body>
+</html>

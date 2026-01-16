@@ -1,0 +1,251 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* Gotham Medium */
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/Gotham/Gotham-Thin.woff') format('woff');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/Gotham/Gotham-ThinItalic.woff') format('woff');
+  font-weight: 100;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/Gotham/Gotham-XLight.woff') format('woff');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/Gotham/Gotham-Light.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/Gotham/Gotham-LightItalic.woff') format('woff');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/Gotham/Gotham-Book.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/Gotham/Gotham-Medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/Gotham/Gotham-MediumItalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/Gotham/Gotham-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/Gotham/Gotham-BoldItalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Gotham';
+  src: url('../fonts/Gotham/Gotham-Black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+body {
+  font-family: "Gotham", sans-serif;
+  font-weight:300;
+  font-style: normal;
+  color: black;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+
+/* Header */
+.header {
+  border-bottom: 1px solid #eee;
+  padding: 1rem 2rem;
+}
+
+.brand {
+  display: inline-flex; /* Cambiamos a inline-flex */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Gotham', sans-serif;
+  font-weight: 100; /* Peso fino inicial */
+  font-size: 1.2rem;
+  color: black;
+  text-decoration: none;
+  letter-spacing: 5px;
+  word-spacing: 2px;
+  text-align: center;
+}
+
+.brand:hover {
+  font-weight: 300; 
+  letter-spacing: 4.6px;
+  word-spacing: 2px;
+  /* El peso gordo al pasar el ratón */
+}
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  font-weight: 300;
+}
+
+.nav-links a,
+.contact {
+  text-decoration: none;
+  color: #111;
+  font-size: 0.95rem;
+}
+
+.nav-links a:hover,
+.contact:hover {
+  font-weight: 400; /* se vuelve más grueso */
+}
+
+.contact {
+  margin-left: 2rem;
+}
+/* Footer */
+.footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  border-top: 1px solid #eee;
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.footer-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-links a {
+  text-decoration: none;
+  color: #555;
+}
+
+.footer-links a:hover {
+  color: #000;
+}
+/* Página de contacto */
+.contact-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 1.5rem;
+  background: #f2f2f2;
+  }
+
+.contact-container {
+  max-width: 600px;
+  width: 100%;
+  background: white;
+  padding: 3rem 2.5rem;
+  border-radius: 6px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+  }
+
+.contact-container h1 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 3px;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  }
+
+.contact-container p {
+  font-size: 0.9rem;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 2.5rem;
+  color: #444;
+  }
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  }
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  font-family: inherit;
+  font-size: 0.85rem;
+  border: none;
+  border-bottom: 1px solid #000;
+  background: transparent;
+  outline: none;
+  }
+
+.contact-form textarea {
+  resize: none; 
+  min-height: 120px;
+  }
+
+.contact-form button {
+  margin-top: 2rem;
+  padding: 0.9rem;
+  background: black;
+  color: white;
+  border: none;
+  font-size: 0.75rem;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  }
+
+ .contact-form button:hover {
+  background: #333;
+  }
+
+@media (max-width: 600px) {
+  .contact-container {
+   padding: 2.5rem 1.8rem;
+   }
+  }
