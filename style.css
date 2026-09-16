@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none;
 }
 
 @font-face {
@@ -10,6 +9,7 @@
   src: url('./fonts/Gotham/Gotham-Thin.woff') format('woff');
   font-weight: 100;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -17,6 +17,7 @@
   src: url('./fonts/Gotham/Gotham-ThinItalic.woff') format('woff');
   font-weight: 100;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -24,6 +25,7 @@
   src: url('./fonts/Gotham/Gotham-XLight.woff') format('woff');
   font-weight: 200;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -31,6 +33,7 @@
   src: url('./fonts/Gotham/Gotham-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -38,6 +41,7 @@
   src: url('./fonts/Gotham/Gotham-LightItalic.woff') format('woff');
   font-weight: 300;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -45,6 +49,7 @@
   src: url('./fonts/Gotham/Gotham-Book.woff') format('woff');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -52,6 +57,7 @@
   src: url('./fonts/Gotham/Gotham-Medium.woff') format('woff');
   font-weight: 500;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -59,6 +65,7 @@
   src: url('./fonts/Gotham/Gotham-MediumItalic.woff') format('woff');
   font-weight: 500;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -66,6 +73,7 @@
   src: url('./fonts/Gotham/Gotham-Bold.woff') format('woff');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -73,6 +81,7 @@
   src: url('./fonts/Gotham/Gotham-BoldItalic.woff') format('woff');
   font-weight: 700;
   font-style: italic;
+  font-display: swap;
 }
 
 @font-face {
@@ -80,6 +89,7 @@
   src: url('./fonts/Gotham/Gotham-Black.woff') format('woff');
   font-weight: 900;
   font-style: normal;
+  font-display: swap;
 }
 
 /* Header */
@@ -90,7 +100,6 @@ body {
   color: black;
   overflow-x: hidden;
   overflow-y: auto;
-  cursor: none;
 }
 
 .header {
@@ -236,18 +245,26 @@ body {
   opacity: 1;
 }
 
-/* Cursor */
+/* Cursor personalizado */
+html,
+html body,
+html body * {
+  cursor: none !important;
+}
+
 .cursor {
   position: fixed;
   top: 0;
   left: 0;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   background: #000;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 9999;
-  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+  z-index: 2147483647;
+  transform: translate(-50%, -50%);
+  display: block;
+  opacity: 1;
 }
 
 .cursor.active {
@@ -323,4 +340,3 @@ body {
     grid-template-columns: 1fr;
   }
 }
-
