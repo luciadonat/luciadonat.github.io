@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  cursor: none;
 }
 
 @font-face {
@@ -89,6 +90,7 @@ body {
   color: black;
   overflow-x: hidden;
   overflow-y: auto;
+  cursor: none;
 }
 
 .header {
@@ -236,15 +238,22 @@ body {
 
 /* Cursor */
 .cursor {
-  width: 15px;
-  height: 15px;
-  background: black;
-  border-radius: 50%;
   position: fixed;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  background: #000;
+  border-radius: 50%;
   pointer-events: none;
-  z-index: 1000;
-  transition: transform 0.15s ease;
-  will-change: transform;
+  z-index: 9999;
+  transition: width 0.2s ease, height 0.2s ease, opacity 0.2s ease;
+}
+
+.cursor.active {
+  width: 30px;
+  height: 30px;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 /* Animaciones */
@@ -273,10 +282,7 @@ body {
 /* Cada proyecto */
 .project-item {
   position: relative;
-  cursor: pointer;
-  border-radius: 4px; /* opcional: bordes suaves */
-  position: relative;
-  cursor: pointer;
+  border-radius: 4px;
   text-decoration: none;
 }
 

@@ -1,76 +1,75 @@
 document.addEventListener("DOMContentLoaded", () => {
+
+  // -------------------------
+  // 1. Cursor personalizado: bolita negra que sigue al ratón
   const cursor = document.querySelector('.cursor');
-  const galleries = document.querySelectorAll('.gallery'); 
 
-  // -------------------------
-  // 1️⃣ Duplicar thumbs dentro de cada fila .gallery
-  galleries.forEach(gallery => {
-    gallery.innerHTML += gallery.innerHTML; 
-  });
-
-  // -------------------------
-  // 2️⃣ Cursor sigue al ratón centrado
-  document.addEventListener('mousemove', e => {
-    if (!cursor) return;
-    const cursorWidth = cursor.offsetWidth;
-    const cursorHeight = cursor.offsetHeight;
-    cursor.style.left = (e.clientX - cursorWidth / 2) + 'px';
-    cursor.style.top = (e.clientY - cursorHeight / 2) + 'px';
-  });
-
-  // -------------------------
-  // 3️⃣ Hover sobre thumbnails
-  galleries.forEach(gallery => {
-    const thumbs = gallery.querySelectorAll('.thumb');
-
-    thumbs.forEach(thumb => {
-      thumb.addEventListener('mouseenter', () => {
-        cursor.classList.add('active');
-        thumb.classList.add('hovered');
-        thumb.style.zIndex = 10;             
-        gallery.style.animationPlayState = 'paused'; 
-      });
-
-      thumb.addEventListener('mouseleave', () => {
-        cursor.classList.remove('active');
-        thumb.classList.remove('hovered');
-        thumb.style.zIndex = 1;             
-        gallery.style.animationPlayState = 'running';
-      });
+  if (cursor) {
+    document.addEventListener('mousemove', e => {
+      cursor.style.transform =
+        `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
     });
+
+    // Ocultarlo cuando el ratón sale de la ventana
+    document.addEventListener('mouseleave', () => { cursor.style.opacity = '0'; });
+    document.addEventListener('mouseenter', () => { cursor.style.opacity = '1'; });
+  }
+
+  // -------------------------
+  // 2. Hover sobre las miniaturas
+  // Delegación de eventos: Splide clona los slides después de montarse,
+  // así que añadir listeners uno a uno dejaría los clones sin efecto.
+  document.addEventListener('mouseover', e => {
+    const thumb = e.target.closest('.thumb, .project-item');
+    if (!thumb) return;
+
+    if (cursor) cursor.classList.add('active');
+    thumb.classList.add('hovered');
+  });
+
+  document.addEventListener('mouseout', e => {
+    const thumb = e.target.closest('.thumb, .project-item');
+    if (!thumb) return;
+
+    if (cursor) cursor.classList.remove('active');
+    thumb.classList.remove('hovered');
   });
 
   // -------------------------
-  // 4️⃣ Slider del menú
-  const nav = document.querySelector("header nav ul");
+  // 3. Slider del menú
+  const nav = document.querySelector("header nav");
   const links = document.querySelectorAll("header nav a");
 
-  if(nav && links.length > 0) {
-    // Crear slider
-    const slider = document.createElement("div");
-    slider.style.position = "absolute";
-    slider.style.bottom = "0";
-    slider.style.height = "2px";
-    slider.style.backgroundColor = "#e67e22";
-    slider.style.transition = "all 0.3s ease";
-    slider.style.zIndex = "5";
-    nav.appendChild(slider);
+  if (nav && links.length > 0) {
+    // El slider se posiciona respecto al <nav>, no al <ul>,
+    // porque "Contact" y la marca están fuera de la lista.
+    nav.style.position = "relative";
 
-    // Función para mover slider
+    
     function moveSlider(link) {
-      slider.style.width = `${link.offsetWidth}px`;
-      slider.style.left = `${link.offsetLeft}px`;
+      if (!link) {
+        slider.style.opacity = "0";
+        return;
+      }
+      const navRect = nav.getBoundingClientRect();
+      const linkRect = link.getBoundingClientRect();
+
+      slider.style.opacity = "1";
+      slider.style.width = `${linkRect.width}px`;
+      slider.style.left = `${linkRect.left - navRect.left}px`;
     }
 
-    // Posición inicial en el enlace actual
+    // Posición inicial en el enlace actual (si lo hay)
     const current = document.querySelector("header nav a.current");
-    if(current) moveSlider(current);
+    moveSlider(current);
 
-    // Mover slider al pasar el mouse
     links.forEach(link => {
       link.addEventListener("mouseenter", () => moveSlider(link));
       link.addEventListener("mouseleave", () => moveSlider(current));
     });
+
+    // Recalcular si cambia el tamaño de la ventana
+    window.addEventListener("resize", () => moveSlider(current));
   }
 
 });
